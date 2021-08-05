@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
-//import Navbar, NavbarBrand
-import { Navbar, NavbarBrand}  from 'reactstrap';
-import Directory from './components/DirectoryComponent';
+import Main from "./components/MainComponent";
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from "react-redux";
+import { ConfigureStore } from "./redux/ConfigureStore";
 import './App.css';
-import { DESTINATIONS } from './shared/destinations';
+
+const store = ConfigureStore();
 
 class App extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            destinations: DESTINATIONS,
-        };
-    }
-
     render() {
         return (
-            <div className="App">
-                <Navbar dark color="primary">
-                <div className="container">
-                    <NavbarBrand href="/"> Starry Nights </NavbarBrand>
-                </div>
-                </Navbar>
-                <Directory destinations={this.state.destinations}/>
-            </div>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div className="App">
+                        <Main />
+                    </div>
+                </BrowserRouter>
+            </Provider>
         );
     }
 }
