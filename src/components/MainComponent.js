@@ -6,18 +6,24 @@ import Home from "./HomeComponent";
 import LocationInfo from "./LocationInfoComponent";
 import ExperienceDirectory from "./ExperienceDirectoryComponent";
 import ExperienceInfo from "./ExperienceInfoComponent";
+import HostRegistration from "./HostRegistrationComponent";
 import Subscribe from "./SubscribeComponent";
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
+import { addReview } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
         locations: state.locations,
+        experiences: state.experiences,
         hosts: state.hosts,
         reviews: state.reviews,
-        experiences: state.experiences,
     }
 }
+
+const mapDispatchToProps = {
+    addReview: (locationId, experienceId, author, text) => (addReview(locationId, experienceId, author, text))
+};
 
 class Main extends Component {
 
@@ -38,6 +44,7 @@ class Main extends Component {
                 <LocationInfo
                     location={this.props.locations.filter(location => location.id === +match.params.locationId)[0]}
                     reviews={this.props.reviews.filter(review => review.locationId === +match.params.locationId)}
+                    addReview={this.props.addReview}
                 />
             );
         }
@@ -47,6 +54,7 @@ class Main extends Component {
                 <ExperienceInfo
                     experience={this.props.experiences.filter(experience => experience.id === +match.params.experienceId)[0]}
                     reviews={this.props.reviews.filter(review => review.experienceId === +match.params.experienceId)}
+                    addReview={this.props.addReview}
                 />
             );
         }
@@ -60,6 +68,7 @@ class Main extends Component {
                         <Route exact path="/locations/:locationId" component={LocationWithId} />
                         <Route exact path="/experiences" render={() => <ExperienceDirectory experiences={this.props.experiences} /> } />
                         <Route exact path="/experiences/:experienceId" component={ExperienceWithId} />
+                        <Route exact path="/host" component={() => <HostRegistration />} />
                         <Redirect to="/home" />
                     </Switch>
                 <Subscribe />
@@ -69,4 +78,6 @@ class Main extends Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+
+// 

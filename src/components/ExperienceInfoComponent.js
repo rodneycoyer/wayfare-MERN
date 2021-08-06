@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
 import { Link } from "react-router-dom";
 
 function RenderExperienceInfo({ experience }) {
@@ -18,7 +18,7 @@ function RenderExperienceInfo({ experience }) {
     );
 }
 
-function RenderReviews({ reviews }) {
+function RenderReviews({ reviews, addReview, experienceId }) {
     if (reviews) {
         return (
             <div className="col-md-5 m-1">
@@ -47,6 +47,7 @@ function RenderReviews({ reviews }) {
                         );
                     })
                 }
+                <Button >Add Comment</Button>
             </div>
         );
     }
@@ -69,7 +70,11 @@ function ExperienceInfo(props) {
                 </div>
                 <div className="row">
                     <RenderExperienceInfo experience={props.experience} />
-                    <RenderReviews reviews={props.reviews} />
+                    <RenderReviews
+                        reviews={props.reviews}
+                        addReview={props.addReview}
+                        experienceId={props.experience.id}
+                    />
                 </div>
             </div>
         );
