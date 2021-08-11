@@ -7,6 +7,8 @@ import LocationInfo from "./LocationInfoComponent";
 import ExperienceDirectory from "./ExperienceDirectoryComponent";
 import ExperienceInfo from "./ExperienceInfoComponent";
 import HostRegistration from "./HostRegistrationComponent";
+import ProductDirectory from "./ProductDirectoryComponent"
+import ProductInfo from "./ProductInfoComponent";
 import Subscribe from "./SubscribeComponent";
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
@@ -16,13 +18,14 @@ const mapStateToProps = state => {
     return {
         locations: state.locations,
         experiences: state.experiences,
+        products: state.products,
         hosts: state.hosts,
         reviews: state.reviews,
     }
 }
 
 const mapDispatchToProps = {
-    addReview: (locationId, experienceId, author, text) => (addReview(locationId, experienceId, author, text))
+    addReview: (locationId, experienceId, productId, author, text) => (addReview(locationId, experienceId, productId, author, text))
 };
 
 class Main extends Component {
@@ -59,6 +62,16 @@ class Main extends Component {
             );
         }
 
+        const ProductWithId = ({ match }) => {
+            return (
+                <ProductInfo
+                    product={this.props.products.filter(product => product.id === +match.params.productId)[0]}
+                    reviews={this.props.reviews.filter(review => review.productId === +match.params.productId)}
+                    addReview={this.props.addReview}
+                />
+            );
+        }
+
         return (
             <div>
                 <Header />
@@ -68,6 +81,8 @@ class Main extends Component {
                         <Route exact path="/locations/:locationId" component={LocationWithId} />
                         <Route exact path="/experiences" render={() => <ExperienceDirectory experiences={this.props.experiences} /> } />
                         <Route exact path="/experiences/:experienceId" component={ExperienceWithId} />
+                        <Route exact path="/products" render={() => <ProductDirectory products ={this.props.products} /> } />
+                        <Route exact path="/products/:productId" component={ProductWithId} />
                         <Route exact path="/host" component={() => <HostRegistration />} />
                         <Redirect to="/home" />
                     </Switch>
@@ -79,5 +94,3 @@ class Main extends Component {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
-
-// 

@@ -46,7 +46,7 @@ function LocationDirectory(props) {
                     <Col>
                         <Breadcrumb>
                             <BreadcrumbItem> <Link to="/home"> Home </Link> </BreadcrumbItem>
-                            <BreadcrumbItem active> Destinations </BreadcrumbItem>
+                            <BreadcrumbItem active> Places to Stay </BreadcrumbItem>
                         </Breadcrumb>
                         <h2> Popular Destinations </h2>
                         <hr />

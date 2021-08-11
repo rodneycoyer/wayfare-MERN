@@ -35,7 +35,7 @@ h1, h2, h3, .card-body>.card-title {
 .jumbotron-home {
     margin: 10;
     padding: 275px;
-    background-image: url(https://wallpaper.dog/large/5566915.jpg);
+    background-image: url(https://cdn.airstream.com/wp-content/uploads/2018/10/International-Signature-Travel-Trailers-Colorado-camping.jpg);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
@@ -58,6 +58,17 @@ h1, h2, h3, .card-body>.card-title {
     margin: 10;
     padding: 200px;
     background-image: url(https://wallpaperaccess.com/full/2826992.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: red;
+    border-radius: 0%;
+}
+
+.jumbotron-products {
+    margin: 10;
+    padding: 200px;
+    background-image: url(https://wallpaper.dog/large/5566915.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

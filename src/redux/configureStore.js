@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from "redux";
 import { Locations } from "./locations";
 import { Experiences } from "./experiences";
+import { Products } from "./products";
 import { Hosts } from "./hosts";
 import { Reviews } from "./reviews"
 
@@ -10,6 +11,7 @@ export const ConfigureStore = () => {
         combineReducers({
             locations: Locations,
             experiences: Experiences,
+            products: Products,
             hosts: Hosts,
             reviews: Reviews,
         })
