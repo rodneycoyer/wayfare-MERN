@@ -1,4 +1,5 @@
-# website-react-1
-ABnB Style Website
+# wayfare
 
+## travel style website
 
+create a full stack project using React.js, Node/Express, MongoDB
