@@ -1,26 +1,26 @@
 export const EXPERIENCES = [
     {
         id: 0,
-        name: "Experience 1",
-        image: "/assets/images/destinations/card-images/wonderland-trail-500x300.jpeg",
+        name: "Arches 4x4 Experience",
+        image: "/assets/images/destinations/card-images/arches-national-park-500x300.jpg",
         featured: true,
-        description: "Generic Description of Vacation Packages.",
+        description: "Jump in a Jeep for a 4-wheel drive excursion like none-other.",
         review: "Review 1"
     },
     {
         id: 1,
-        name: "Online Experience 2",
+        name: "Wonderland Trail",
         image: "/assets/images/destinations/card-images/wonderland-trail-500x300.jpeg",
         featured: true,
-        description: "Generic Description of Vacation Packages",
+        description: "Some of the most scenic country in the world. Embark on this 14 backpack trip",
         review: "Review 2"
     },
     {
         id: 2,
-        name: "Experience Package 3",
-        image: "/assets/images/destinations/card-images/wonderland-trail-500x300.jpeg",
+        name: "John Muir Trail",
+        image: "/assets/images/destinations/card-images/half-dome-500x300.jpg",
         featured: true,
-        description: "Generic Description of Vacation Packages",
+        description: "Spend 4 days hiking through Yosemite National Park.",
         review: "Review 3"
     }
 ]

@@ -39,7 +39,7 @@ function Home({ location, host, experience }) {
                 <Row>
                     <CardGroup>
                         <RenderCard item={location[0]} />
-                        <RenderCard item={location[1]} />
+                        <RenderCard item={location[3]} />
                         <RenderCard item={experience[0]} />
                     </CardGroup>
                 </Row>
@@ -52,7 +52,7 @@ function Home({ location, host, experience }) {
                 <Row>
                     <CardGroup>
                         <RenderCard item={location[2]} />
-                        <RenderCard item={location[3]} />
+                        <RenderCard item={location[5]} />
                         <RenderCard item={location[4]} />
                     </CardGroup>
                 </Row>
