@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Getting Started with Wayfare
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+##
+
+This is the client-side code for a MERN full-stack project.
+
+Clone the app and install dependencies
+
+### `yarn install`
 
 ## Available Scripts
 
